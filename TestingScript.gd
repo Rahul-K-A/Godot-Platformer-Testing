@@ -1,37 +1,53 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+#Vector to keep track of direction of motion
 var Motion=Vector2(0,0)
-const SPEED=500
-const GRAVITY=300
+#Movement Speed
+const SPEED=1000
+#Gravity in the game
+const GRAVITY=150
+#UP Vector stops the character from sliding around when colliding witha nother body
 const UP=Vector2(0,-1)
+#Self explanatory
 const JUMP_VELOCITY=3000
-# Called when the node enters the scene tree L  first time.
+	
 func _physics_process(delta):
 	ApplyGravity()
-	if Input.is_action_just_pressed("Jump"):
+	ProcessInput()
+	AnimateSprite()
+	move_and_slide(Motion,UP)
+		
+		
+func ProcessInput():
+	if Input.is_action_pressed("Jump") and is_on_floor():
 		Motion.y-=JUMP_VELOCITY
 		print(Motion)
-	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("MoveLeft") and not Input.is_action_pressed("MoveRight"):
 		Motion.x=-SPEED
-	elif Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("MoveRight") and not Input.is_action_pressed("MoveLeft"):
 		Motion.x=SPEED
 	else:
 		Motion.x=0
-	move_and_slide(Motion,UP)
-		
-
+	
 
 func ApplyGravity():
+	
 	if is_on_floor():
 		Motion.y=0
 	else:
 		Motion.y+=GRAVITY
+		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func AnimateSprite():
+	if Motion.y<0:
+		$PlayerSprite.play("Jump")
+		return
+	if Motion.x<0:
+		$PlayerSprite.flip_h=true
+		$PlayerSprite.play("Walk")
+	elif Motion.x>0:
+		$PlayerSprite.flip_h=false
+		$PlayerSprite.play("Walk")
+	else:
+		$PlayerSprite.play("Idle")
+	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Hoppy_Days_Assets /GFX/Environment/ground_cake.png" type="Texture" id=2]
+[ext_resource path="res://Assets /GFX/Environment/ground_cake.png" type="Texture" id=2]
 
 [node name="Level1" type="Node2D"]
 
@@ -22,3 +22,39 @@ texture = ExtResource( 2 )
 position = Vector2( 259.622, 0 )
 scale = Vector2( 1.00194, 1 )
 polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2( 862.645, 750.985 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platform2"]
+position = Vector2( 258.857, 2.09327 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform2"]
+position = Vector2( 259.622, 0 )
+scale = Vector2( 1.00194, 1 )
+polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2( 656.113, 385.062 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platform3"]
+position = Vector2( 258.857, 2.09327 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform3"]
+position = Vector2( 259.622, 0 )
+scale = Vector2( 1.00194, 1 )
+polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1019.2, 597.15 )
+scale = Vector2( -53.1284, -120.614 )
+current = true
+zoom = Vector2( 2, 2 )
