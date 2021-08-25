@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets /GFX/Players/bunny2_ready.png" type="Texture" id=1]
+[ext_resource path="res://Assets /GFX/Players/bunny2_walk1.png" type="Texture" id=2]
+[ext_resource path="res://Assets /GFX/Players/bunny2_stand.png" type="Texture" id=3]
+[ext_resource path="res://Assets /GFX/Players/bunny2_hurt.png" type="Texture" id=4]
+[ext_resource path="res://Assets /GFX/Players/bunny2_jump.png" type="Texture" id=5]
+[ext_resource path="res://Assets /GFX/Players/bunny2_walk2.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/PlayerAnimationScript.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 10.0
+} ]
+
+[node name="PlayerAnimation" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+script = ExtResource( 7 )
