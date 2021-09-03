@@ -1,60 +1,62 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets /GFX/Environment/ground_cake.png" type="Texture" id=1]
+[ext_resource path="res://Assets /Tileset/GroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/GameState.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Spikes_Top.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=5]
 
-[node name="Level1" type="Node2D"]
+[node name="Testing" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Bunny" parent="." instance=ExtResource( 2 )]
-position = Vector2( 428.838, 397.897 )
+position = Vector2( 484.655, 407.988 )
+collision_mask = 2
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2( 216.107, 544.452 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -786424, 6, 0, -786409, 5, 0, -458724, 6, 0, -393176, 6, 0, -327626, 6, 0, -65469, 6, 0, 262205, 6, 0, 458780, 4, 0, 524292, 0, 0, 524303, 1, 0, 524331, 5, 0, 524341, 6, 0, 786467, 4, 0, 851988, 0, 0, 1048584, 3, 0, 1048604, 4, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179699, 0, 0, 1179700, 0, 0, 1179701, 0, 0, 1179702, 0, 0, 1179703, 0, 0, 1179704, 0, 0, 1179705, 0, 0, 1179706, 0, 0, 1179707, 0, 0, 1179708, 0, 0, 1179709, 0, 0, 1245184, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245231, 0, 0, 1245232, 0, 0, 1245233, 0, 0, 1310759, 0, 0, 1310760, 0, 0, 1310761, 0, 0, 1310762, 0, 0, 1310763, 0, 0, 1310764, 0, 0, 1310765, 0, 0, 1310766, 0, 0, 1310767, 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="Platform"]
-position = Vector2( 258.857, 2.09327 )
-texture = ExtResource( 1 )
+[node name="Area2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1585.26, 776.84 )
+collision_layer = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
-position = Vector2( 259.622, 0 )
-scale = Vector2( 1.00194, 1 )
-polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+[node name="Coins" type="Node" parent="."]
 
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2( 862.645, 750.985 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Coin" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 1063.97, 436.973 )
 
-[node name="Sprite" type="Sprite" parent="Platform2"]
-position = Vector2( 258.857, 2.09327 )
-texture = ExtResource( 1 )
+[node name="Coin2" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 1868.89, 395.553 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform2"]
-position = Vector2( 259.622, 0 )
-scale = Vector2( 1.00194, 1 )
-polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+[node name="Coin3" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 1397.42, 788.11 )
 
-[node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2( 656.113, 385.062 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Coin4" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 617.388, 975.15 )
 
-[node name="Sprite" type="Sprite" parent="Platform3"]
-position = Vector2( 258.857, 2.09327 )
-texture = ExtResource( 1 )
+[node name="Coin5" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 2429.74, 689.74 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform3"]
-position = Vector2( 259.622, 0 )
-scale = Vector2( 1.00194, 1 )
-polygon = PoolVector2Array( -161.794, 50.4624, 158.226, 37.2333, 190.354, -14.4235, 187.834, -40.8818, 168.935, -44.0316, -178.173, -45.2915, -189.512, -38.9919, -192.032, -8.75384 )
+[node name="Coin6" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 2853.1, 428.115 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1019.2, 597.15 )
-scale = Vector2( -53.1284, -120.614 )
-current = true
-zoom = Vector2( 2, 2 )
+[node name="Coin7" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 2967.26, 252.112 )
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 3133.75, 104.65 )
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 3309.75, 247.355 )
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 3466.73, 423.358 )
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 3381.1, 1079.8 )
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 1986.35, 899.04 )

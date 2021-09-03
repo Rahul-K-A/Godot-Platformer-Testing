@@ -14,6 +14,11 @@ config/name="HopDays"
 run/main_scene="res://Scenes/TestingLevel.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [global]
 
 "main scene"=false
@@ -54,6 +59,13 @@ MoveRight={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Terrain"
+2d_physics/layer_3="Hazards"
+2d_physics/layer_4="Items"
 
 [physics]
 
